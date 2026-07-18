@@ -86,7 +86,7 @@ export default function Hero() {
             </a>
           </MagneticButton>
           <MagneticButton>
-            <a href="/mohamed_fathy_cv.pdf" download className="btn-ghost" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 20px" }}>
+            <a href="/Mohamed_Fathy_CV.pdf" download className="btn-ghost" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 20px" }}>
               <Download size={18} /> Download CV
             </a>
           </MagneticButton>
