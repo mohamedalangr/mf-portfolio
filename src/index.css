@@ -317,21 +317,67 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ============ ABOUT ============ */
-.about-grid {
+.about-grid-new {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: start;
 }
 
-.about-copy p {
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.about-bio h3, .about-skills h3, .timeline-section h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--navy-900);
+  margin-bottom: 20px;
+}
+
+.about-bio p {
   color: var(--slate-600);
   line-height: 1.75;
   font-size: 1.02rem;
   margin-bottom: 18px;
 }
 
-.about-copy strong { color: var(--navy-900); }
+.about-bio strong { color: var(--navy-900); }
+
+.skill-category {
+  margin-bottom: 24px;
+}
+
+.skill-category h4 {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--teal-500);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--navy-700);
+  background: var(--paper);
+  border: 1px solid rgba(10,26,47,0.08);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.about-timelines {
+  display: flex;
+  flex-direction: column;
+}
 
 .timeline {
   border-left: 2px solid rgba(31, 173, 163, 0.25);
@@ -341,29 +387,51 @@ button { font-family: inherit; cursor: pointer; }
   gap: 26px;
 }
 
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item .timeline-dot {
+  position: absolute;
+  left: -29px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid var(--teal-400);
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--teal-500);
+  margin-bottom: 4px;
+}
+
 .timeline-item .role {
   font-family: var(--font-display);
   font-weight: 600;
   color: var(--navy-900);
-  font-size: 1.02rem;
+  font-size: 1.05rem;
 }
 
 .timeline-item .org {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--teal-500);
-  margin-top: 3px;
+  font-size: 0.85rem;
+  color: var(--slate-600);
+  margin-top: 2px;
 }
 
 .timeline-item .desc {
-  margin-top: 6px;
+  margin-top: 8px;
   color: var(--slate-600);
   font-size: 0.92rem;
   line-height: 1.55;
 }
 
-@media (max-width: 860px) {
-  .about-grid { grid-template-columns: 1fr; }
+@media (max-width: 960px) {
+  .about-grid-new { grid-template-columns: 1fr; gap: 48px; }
 }
 
 /* ============ SERVICES ============ */

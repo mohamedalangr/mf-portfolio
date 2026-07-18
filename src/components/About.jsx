@@ -1,26 +1,53 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
-
-const TIMELINE = [
+const EXPERIENCE = [
   {
-    role: "ML Intern",
+    role: "Machine Learning Intern",
     org: "FlyRank",
-    desc: "Applied machine learning to real SEO and content-ranking problems.",
+    desc: "Applied machine learning algorithms to solve real-world SEO and content-ranking challenges, optimizing search performance.",
+    date: "2024",
   },
   {
     role: "Data Analyst",
     org: "AITB",
-    desc: "Built reporting and analysis workflows to support business decisions.",
+    desc: "Built comprehensive reporting workflows and data pipelines to support data-driven business decisions.",
+    date: "2023",
   },
   {
-    role: "Intern",
+    role: "Data Analytics Intern",
     org: "CodeAlpha",
-    desc: "Hands-on project work across data and software development tasks.",
+    desc: "Executed end-to-end analytics tasks including web scraping, EDA, data visualization, and NLP sentiment analysis.",
+    date: "2023",
   },
+];
+
+const EDUCATION = [
   {
     role: "B.Sc. Computer Science & IT",
     org: "Future University in Egypt (FUE)",
-    desc: "Graduated from the Faculty of Computers and Information Technology.",
+    desc: "Graduated from the Faculty of Computers and Information Technology. Developed 'EmpowerHR', an AI-powered HR platform, as a graduation project.",
+    date: "Graduated",
+  },
+  {
+    role: "ML & AI Fluency Bootcamp",
+    org: "Ongoing",
+    desc: "Deepening theoretical and practical foundations through structured tracks in Machine Learning and General AI.",
+    date: "Current",
+  },
+];
+
+const SKILLS = [
+  {
+    category: "AI & Machine Learning",
+    items: ["Python", "Scikit-learn", "NLP (TF-IDF, BERT)", "XGBoost", "Predictive Modeling", "SHAP"],
+  },
+  {
+    category: "Data Analytics & Engineering",
+    items: ["PostgreSQL", "Pandas", "ETL Pipelines", "Data Visualization", "Matplotlib / Seaborn"],
+  },
+  {
+    category: "Software Development",
+    items: ["FastAPI", "Django", "React", "Streamlit", "Docker", "Git"],
   },
 ];
 
@@ -29,6 +56,7 @@ function TimelineItem({ t }) {
   return (
     <div className={`timeline-item reveal ${isVisible ? "reveal-visible" : ""}`} ref={ref}>
       <div className="timeline-dot" />
+      <div className="timeline-date">{t.date}</div>
       <div className="role">{t.role}</div>
       <div className="org">{t.org}</div>
       <div className="desc">{t.desc}</div>
@@ -41,39 +69,59 @@ export default function About() {
 
   return (
     <section className="section" id="about">
-      <div className={`wrap about-grid reveal ${isVisible ? "reveal-visible" : ""}`} ref={ref}>
+      <div className={`wrap reveal ${isVisible ? "reveal-visible" : ""}`} ref={ref}>
         <div className="section-head">
           <span className="eyebrow">// about</span>
-          <h2>Data-first, product-minded.</h2>
+          <h2>End-to-End AI Engineering.</h2>
         </div>
-        <div className="about-grid">
-          <div className="about-copy">
-            <p>
-              I'm a <strong>Data Analyst and AI Engineer</strong> who likes
-              working close to the whole pipeline — from cleaning a messy
-              dataset, to training the model, to shipping the interface a
-              client actually clicks on. That range comes from my graduation
-              project, <strong>EmpowerHR</strong>, an AI-powered HR platform
-              I built end-to-end: NLP-based CV ranking, attrition prediction,
-              a full-stack web and mobile app, deployed on the cloud.
-            </p>
-            <p>
-              I'm currently deepening that foundation through a structured
-              ML/AI bootcamp, running two tracks in parallel: a{" "}
-              <strong>Machine Learning</strong> track and a{" "}
-              <strong>General AI Fluency</strong> track — while taking on
-              freelance data, ML, and brand/document design work on the side.
-            </p>
-            <p>
-              I work comfortably across Arabic and English contexts, and I'm
-              equally at home presenting a dashboard to a business
-              stakeholder as I am tuning a model in a notebook.
-            </p>
+        
+        <div className="about-grid-new">
+          <div className="about-content">
+            <div className="about-bio">
+              <h3>My Approach</h3>
+              <p>
+                I am a <strong>Data Analyst and AI Engineer</strong> who bridges the gap between raw data and production-ready applications. I specialize in building complete, end-to-end pipelines — from cleaning messy datasets and engineering features, to training complex machine learning models, to deploying robust APIs and interactive dashboards.
+              </p>
+              <p>
+                My work spans across classical ML (like predicting industrial solar yields with Gradient Boosting), NLP (building semantic search and resume ranking engines with Sentence-BERT and TF-IDF), and full-stack software development. Whether I'm building a FastAPI backend, containerizing an app with Docker, or presenting actionable insights to stakeholders, I focus on delivering scalable, product-minded solutions.
+              </p>
+            </div>
+
+            <div className="about-skills">
+              <h3>Core Stack</h3>
+              <div className="skills-grid">
+                {SKILLS.map((skillGroup) => (
+                  <div key={skillGroup.category} className="skill-category">
+                    <h4>{skillGroup.category}</h4>
+                    <div className="skill-tags">
+                      {skillGroup.items.map((item) => (
+                        <span key={item} className="skill-tag">{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="timeline">
-            {TIMELINE.map((t) => (
-              <TimelineItem key={t.role} t={t} />
-            ))}
+
+          <div className="about-timelines">
+            <div className="timeline-section">
+              <h3>Experience</h3>
+              <div className="timeline">
+                {EXPERIENCE.map((t) => (
+                  <TimelineItem key={t.role} t={t} />
+                ))}
+              </div>
+            </div>
+            
+            <div className="timeline-section" style={{ marginTop: "3rem" }}>
+              <h3>Education</h3>
+              <div className="timeline">
+                {EDUCATION.map((t) => (
+                  <TimelineItem key={t.role} t={t} />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
